@@ -30,35 +30,31 @@ namespace Veresiye.Service
             return user;
         }
 
-        public bool Register(string userName, string password, string conFirmPassword)
+        public RegisterStatus Register(User user)
         {
-            userName = userName.ToLower();
+            user.UserName = user.UserName.ToLower();
 
             //Validasyonlar
-            if (password != conFirmPassword)//şifre tekrarı eşit değilse çık.
-
+           if (string.IsNullOrEmpty(user.UserName))
             {
-                return false;
-            }
-            else if (string.IsNullOrEmpty(userName))
-            {
-                return false;
+                return RegisterStatus.InvalidFields;
             }
             else
-            {
-                var user = userRepository.Get(x=>x.UserName==userName);
-                if (user!=null)
+            {//veritabanında böyle bir kullanıcı var mı diye baktık!.
+                var newUser = userRepository.Get(x=>x.UserName== user.UserName);
+                if (newUser!=null)
                 {
-                    return false;
+                    return RegisterStatus.UserAlreadyExists;
                 }
             }
 
-            var newUser = new User();
-            newUser.UserName = userName;
-            newUser.Password = password;
-            userRepository.Insert(newUser);
+            //var newUser = new User();
+            //newUser.UserName = user.UserName;
+            //newUser.Password = user.Password;
+           
+            userRepository.Insert(user);
             unitOfWork.SaveChanges();
-            return true;
+            return RegisterStatus.Success;
         }
 
         bool IUserService.Login(string userName, string password)
@@ -70,11 +66,17 @@ namespace Veresiye.Service
     public interface IUserService
     {
         bool Login(string userName,string password);
-        bool Register(string userName, string password, string conFirmPassword);
+        RegisterStatus Register(User user);
         IEnumerable<User> GetAll();
 
     }
 
+    public enum RegisterStatus
+    {
+        Success=1,
+        InvalidFields=2,
+        UserAlreadyExists=3
+    }
 
 
 }
