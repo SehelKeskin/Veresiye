@@ -14,7 +14,6 @@ namespace Veresiye.Data
         {
 
             //Modele erişebilmek için Add-->Referans--> projectten ekledin Modeli
-         
 
          
         }
@@ -23,6 +22,12 @@ namespace Veresiye.Data
         public virtual DbSet<User> Users { get; set; }//Bunları yazdığında hata veriyor! Ctrl+. Bas!
         public virtual DbSet<Company> Companys { get; set; }
         public virtual DbSet<Activity> Activities { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            var userBuilder = new UserBuilder(modelBuilder.Entity<User>());
+
+        }
 
 
 
