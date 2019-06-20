@@ -16,7 +16,7 @@ namespace Veresiye.UI
         public FrmMain MasterForm { get; set; }
         private readonly IUserService userService;
   
-        public FrmLogin(IUserService userService)
+        public FrmLogin(IUserService userService)//Autofac sayesinde otomatik aldı constructure.
         {
             this.userService = userService;
             InitializeComponent();
@@ -27,18 +27,24 @@ namespace Veresiye.UI
            var a= userService.Login(txtName.Text,txtPassword.Text);
             if (a!=null)
             {
-                MessageBox.Show("Var");
-                MasterForm.ShowCompany();
+             
+                MasterForm.LoadFrmCompanies();
+                this.Close();
             }
             else
             {
-                MessageBox.Show("yok");
+                MessageBox.Show("Geçersiz kullanıcı adı veya parola.");
             }
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

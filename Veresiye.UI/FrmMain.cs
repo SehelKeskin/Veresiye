@@ -24,6 +24,7 @@ namespace Veresiye.UI
             this.userService = userService;
             this.frmCompanies = frmCompanies;
             this.frmRegister = frmRegister;
+            this.frmRegister.FormClosed += FrmRegister_FormClosed;
             InitializeComponent();//mdiparent initial de belirlendiği için ! bundan sonra ekleeme yapıldı!!!!!!!
            this.frmRegister.MdiParent = this;
             this.frmCompanies.MdiParent = this;
@@ -31,9 +32,12 @@ namespace Veresiye.UI
             this.FrmLogin.MasterForm = this;
         }
 
+        private void FrmRegister_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmLogin.Show();
+        }
 
-
-        public void ShowCompany()
+        public void LoadFrmCompanies()
         {
             frmCompanies.Show();
         }
