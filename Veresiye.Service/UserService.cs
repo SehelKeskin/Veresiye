@@ -57,17 +57,15 @@ namespace Veresiye.Service
             return RegisterStatus.Success;
         }
 
-        bool IUserService.Login(string userName, string password)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 
     public interface IUserService
     {
-        bool Login(string userName,string password);
+        User Login(string userName,string password);
         RegisterStatus Register(User user);
         IEnumerable<User> GetAll();
+      
 
     }
 
