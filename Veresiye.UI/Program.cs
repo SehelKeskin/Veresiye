@@ -18,7 +18,7 @@ namespace Veresiye.UI
         static void Main()
         {
 
-
+            //AutoFAc
             var builder = new ContainerBuilder();
             builder.RegisterType<ApplicationDbContext>().As<ApplicationDbContext>().SingleInstance();
             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>));
@@ -39,6 +39,7 @@ namespace Veresiye.UI
             builder.RegisterType<FrmLogin>().As<FrmLogin>();
             builder.RegisterType<FrmAdd>().As<FrmAdd>();
             builder.RegisterType<FrmCompanyEdit>().As<FrmCompanyEdit>();
+            builder.RegisterType<FrmActivityAdd>().As<FrmActivityAdd>();
 
          
 

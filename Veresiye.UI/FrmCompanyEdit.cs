@@ -16,14 +16,20 @@ namespace Veresiye.UI
     {
         private readonly ICompanyService companyService;
         private readonly IActivityService activityService;
+        private readonly FrmActivityAdd frmActivityAdd;
         public FrmCompanies MasterForm { get; set; }
     
      
-        public FrmCompanyEdit(ICompanyService companyService, IActivityService activityService)
+        public FrmCompanyEdit(ICompanyService companyService, IActivityService activityService, FrmActivityAdd frmActivityAdd)
         {
             this.activityService = activityService;
             this.companyService = companyService;
+            this.frmActivityAdd = frmActivityAdd;
+
+            
             InitializeComponent();
+            this.frmActivityAdd.MdiParent = this.MdiParent;
+            this.frmActivityAdd.MasterForm = this;
         }
 
       
@@ -102,6 +108,8 @@ namespace Veresiye.UI
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
+            frmActivityAdd.Show();
+            frmActivityAdd.LoadForm();
 
         }
     }
