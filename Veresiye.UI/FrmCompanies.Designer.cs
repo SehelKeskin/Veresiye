@@ -32,9 +32,9 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -72,15 +72,15 @@
             this.panel1.Size = new System.Drawing.Size(809, 100);
             this.panel1.TabIndex = 1;
             // 
-            // btnAdd
+            // btnEdit
             // 
-            this.btnAdd.Location = new System.Drawing.Point(268, 45);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(81, 35);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Ekle";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            this.btnEdit.Location = new System.Drawing.Point(430, 45);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(81, 35);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "Düzenle";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnDelete
             // 
@@ -92,14 +92,15 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
-            // btnEdit
+            // btnAdd
             // 
-            this.btnEdit.Location = new System.Drawing.Point(430, 45);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(81, 35);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Düzenle";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(268, 45);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(81, 35);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Text = "Ekle";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // FrmCompanies
             // 

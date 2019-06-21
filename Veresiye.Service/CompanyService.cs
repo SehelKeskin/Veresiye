@@ -48,6 +48,7 @@ namespace Veresiye.Service
             unitOfWork.SaveChanges();
         }
 
+      
         public void Update(Company company)
         {
             CompanyRepository.Update(company);
@@ -62,6 +63,7 @@ namespace Veresiye.Service
         void Update(Company company);
         void Delete(int id);
         IEnumerable<Company> GetAll();
+      
         Company Get(int id);
     }
 }

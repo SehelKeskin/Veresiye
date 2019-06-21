@@ -27,11 +27,13 @@ namespace Veresiye.Service
                 ActivityRepository.Delete(activity);
                 unitOfWork.SaveChanges();
 
-
             }
 
         }
-
+        public IEnumerable<Activity> GetAllByCompanyId(int companyId)
+        {
+            return ActivityRepository.GetAll(x => x.CompanyId == companyId);
+        }
         public Activity Get(int id)
         {
             return ActivityRepository.Get(id);
@@ -63,6 +65,7 @@ namespace Veresiye.Service
         void Delete(int id);
         IEnumerable<Activity> GetAll();
         Activity Get(int id);
+        IEnumerable<Activity> GetAllByCompanyId(int companyId);
     }
 
 }

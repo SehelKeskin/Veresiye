@@ -32,13 +32,13 @@ namespace Veresiye.UI
 
 
 
-            //Formlarımız
+            //Formlarımız c# a eklendi!
             builder.RegisterType<FrmMain>().As<FrmMain>();
             builder.RegisterType<FrmRegister>().As<FrmRegister>();
             builder.RegisterType<FrmCompanies>().As<FrmCompanies>();
             builder.RegisterType<FrmLogin>().As<FrmLogin>();
             builder.RegisterType<FrmAdd>().As<FrmAdd>();
-            builder.RegisterType<FrmEdit>().As<FrmEdit>();
+            builder.RegisterType<FrmCompanyEdit>().As<FrmCompanyEdit>();
 
          
 
