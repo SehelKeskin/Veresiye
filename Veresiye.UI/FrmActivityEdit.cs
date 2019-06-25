@@ -12,24 +12,27 @@ using Veresiye.Service;
 
 namespace Veresiye.UI
 {
-    public partial class FrmActivityAdd : Form
+    public partial class FrmActivityEdit : Form
     {
-        private int CompanyId;
+        private int activityId;
        public FrmCompanyEdit MasterForm { get; set; }
         private readonly IActivityService activityService;
-        public FrmActivityAdd(IActivityService activityService)
+        public FrmActivityEdit(IActivityService activityService)
         {
             this.activityService = activityService;
             InitializeComponent();
         }
-        public void LoadForm(int companyId)//İlişkili olduğuna dikkat et!Save yaparken kullancaksın.
+        public void LoadForm(int activityId)//İlişkili olduğuna dikkat et!Save yaparken kullancaksın.
         {
-            this.CompanyId = companyId;
-            this.txtName.Clear();
-            this.txtAmount.Clear();
-            this.dtTransaction.Value = DateTime.Now;
-            this.cmbActivityType.SelectedIndex = 0;
-
+            this.activityId = activityId;
+            var activity = activityService.Get(activityId);
+            if (activity != null)
+            {
+                this.txtName.Text = activity.Name;
+                this.txtAmount.Text = activity.Amount.ToString();
+                this.dtTransaction.Value = activity.TransactionDate;
+                this.cmbActivityType.SelectedIndex = ((int)activity.ActivityType) - 1;
+            }
         }
         private void FrmActivityAdd_Load(object sender, EventArgs e)
         {
@@ -61,21 +64,15 @@ namespace Veresiye.UI
                 MessageBox.Show("İşlem türü gereklidir.");
             }
 
-            var activity = new Activity();
-            activity.CompanyId = this.CompanyId;
+            var activity = activityService.Get(this.activityId);
             activity.Name = txtName.Text;
             activity.Amount = Convert.ToDecimal(txtAmount.Text);
             activity.ActivityType = (ActivityType)(cmbActivityType.SelectedIndex+1);
             activity.TransactionDate = dtTransaction.Value;
-            activityService.Insert(activity);
+            activityService.Update(activity);
             MasterForm.LoadActivities();
             MessageBox.Show("İşlem kaydedildi.");
             this.Hide();
-        }
-
-        private void DtTransaction_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

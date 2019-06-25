@@ -40,8 +40,9 @@ namespace Veresiye.UI
             builder.RegisterType<FrmAdd>().As<FrmAdd>();
             builder.RegisterType<FrmCompanyEdit>().As<FrmCompanyEdit>();
             builder.RegisterType<FrmActivityAdd>().As<FrmActivityAdd>();
+            builder.RegisterType<FrmActivityEdit>().As<FrmActivityEdit>();
 
-         
+
 
             var container = builder.Build();
 

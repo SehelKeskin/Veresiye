@@ -1,6 +1,6 @@
 ﻿namespace Veresiye.UI
 {
-    partial class FrmActivityAdd
+    partial class FrmActivityEdit
     {
         /// <summary>
         /// Required designer variable.
@@ -105,7 +105,6 @@
             this.dtTransaction.Name = "dtTransaction";
             this.dtTransaction.Size = new System.Drawing.Size(160, 20);
             this.dtTransaction.TabIndex = 8;
-            this.dtTransaction.ValueChanged += new System.EventHandler(this.DtTransaction_ValueChanged);
             // 
             // cmbActivityType
             // 
@@ -120,7 +119,7 @@
             this.cmbActivityType.Size = new System.Drawing.Size(160, 21);
             this.cmbActivityType.TabIndex = 9;
             // 
-            // FrmActivityAdd
+            // FrmActivityEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -134,8 +133,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Name = "FrmActivityAdd";
-            this.Text = "Activite Ekle";
+            this.Name = "FrmActivityEdit";
+            this.Text = "Activite Düzenle";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmActivityAdd_FormClosing);
             this.Load += new System.EventHandler(this.FrmActivityAdd_Load);
             this.ResumeLayout(false);

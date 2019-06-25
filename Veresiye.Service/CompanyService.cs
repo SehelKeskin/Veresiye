@@ -27,7 +27,6 @@ namespace Veresiye.Service
                 CompanyRepository.Delete(company);
                 unitOfWork.SaveChanges();
 
-
             }
             
         }
